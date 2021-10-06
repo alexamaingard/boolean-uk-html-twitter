@@ -13,18 +13,43 @@ h2 {
     font-weight: lighter;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: .8px;
+}
+
+.side-bar-option .highlight {
+    font-weight: 800;
+}
+
+.highlight{
+    font-weight: bold;
+}
+
 .page-container {
-    padding: 0 90px 0 90px;
+    padding: 0 75px 0 75px;
     display: grid;
     grid-template: 
         "side-bar   feed-sect" 1fr/
-        1.2fr 4.8fr;
+        1fr 5fr;
 
     gap: 20px;
 }
 
 .icon {
-    width: 50%;
+    width: 10%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.option-text {
+    margin-top: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 10px;
+    padding-left: 4px;
 }
 
 #twitter {
@@ -48,34 +73,54 @@ h2 {
     object-fit: cover;
 }
 
-.side-bar {
+.user-info {
+    height: 45px;
+    padding: 10px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 45px 1fr 45px;
+}
 
-    padding: 0 10px 10px 10px;
+.user-info .user {
+    width: 85%;
+}
+
+.user-info-text {
+    display: grid;
+    grid-template-rows: repeat(2, 20px);
+}
+
+.user-info .icon{
+    width: 35%;
+}
+
+.side-bar {
+    height: 100vh;
+    padding: 0 30px 10px 10px;
     display: grid;
     grid-area: side-bar;
-    grid-template-rows: repeat(9, 60px);
+    grid-template-rows: repeat(9, 55px) 1fr 80px;
+    gap: 4px;
+    position: sticky;
+    top: 0;
 }
 
 .side-bar-option {
-
-    padding: 3px 0 3px 3px;
     display: grid;
-    grid-template-columns: 50px 1fr;
 }
 
 .side-bar-option .icon {
-    padding: 15px 6px 6px 6px;
+    padding: 15px 8px 6px 9px;
 }
 
-
-
-.side-bar-option:hover {
+.side-bar-option:hover,
+.user-info:hover {
     background-color: rgba(15, 20, 25, 0.1);
     border-radius: 30px;
 }
 
 .side-bar-button {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .tweet-button {
@@ -147,4 +192,3 @@ h2 {
     display: grid;
     grid-area: news;
 }
-
