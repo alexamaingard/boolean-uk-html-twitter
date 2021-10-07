@@ -49,8 +49,8 @@ a {
     display: grid;
     grid-template: 
         "side-bar   feed-sect" 1fr/
-        1fr 5fr;
-    gap: 20px;
+        250px 1000px;
+    gap: 50px;
 }
 
 /*** NAVIGATION BAR ***/
@@ -99,6 +99,7 @@ a {
     display: grid;
     place-items: center;
     grid-template-columns: 45px 1fr 45px;
+    gap: 10px;
 }
 
 .user-info .user {
@@ -116,7 +117,7 @@ a {
 
 .side-bar {
     height: 100vh;
-    padding: 0 30px 10px 10px;
+    padding: 0 30px 0 10px;
     display: grid;
     grid-area: side-bar;
     grid-template-rows: repeat(9, 55px) 1fr 80px;
@@ -164,7 +165,7 @@ a {
     grid-area: feed-sect;
     grid-template:
         "following  news" 1fr/
-        3fr 2fr;
+        600px 400px;
     gap: 15px;
 }
 
@@ -186,12 +187,12 @@ a {
     gap: 5px;
 }
 
-.following-header .icon {
+.explore {
     width: 60%;
-    padding: 11px 10px 10px 10px;
+    padding: 12px;
 }
 
-.following-header svg:hover {
+.explore:hover {
     background-color: rgba(15, 20, 25, 0.1);
     border-radius: 50%;
 }
@@ -208,7 +209,6 @@ a {
     height: 115px;
     display: grid;
     grid-template-rows: 56px 48px;
-    gap: 15px;
 }
 
 .status-options{
@@ -218,7 +218,6 @@ a {
 }
 
 .status-icons {
-    padding-top: 5px;
     display: inline-block;
     vertical-align: center;
 }
@@ -228,17 +227,35 @@ a {
     fill: rgb(29, 155, 240);
 }
 
+#image,
+#gif,
+#poll,
+#emoji,
+#schedule {
+    padding: 10px;
+}
+
+#image:hover,
+#gif:hover,
+#poll:hover,
+#emoji:hover,
+#schedule:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+    border-radius: 50%;
+}
+
 .tweet-button-status {
     background-color: rgba(29, 156, 240, 0.5);
     border-radius: 30px;
+    height: 15px;
     width: 70px;
     color: white;
     font-weight: bold;
     font-size: 1rem;
     text-align: center;
-    padding: 8px;
+    padding: 8px 6px;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: bottom;
 }
 
 .tweets-container {
@@ -256,27 +273,161 @@ a {
 .tweet-right {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .tweet-right-user p {
     display: inline-block;
+    padding-bottom: 10px;
+}
+
+.tweet-content {
+    padding-bottom: 10px;
 }
 
 .tweet-img{
-    width: 100%;
+    height: 310px;
+    width: 440px;
     border-radius: 20px;
+    padding-bottom: 5px;
 }
 
 .tweet-icons {
-    display: flex;
-    justify-content: space-between;
-
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center start;
 }
+
+.comment,
+.repost,
+.like,
+.share {
+    padding: 7px;
+}
+
+.comment:hover {
+    fill:rgb(29, 155, 240);
+    background-color: rgba(29, 155, 240, 0.1);
+    border-radius: 50%;
+}
+
+.repost:hover {
+    fill:rgb(0, 186, 124);
+    background-color: rgba(0, 186, 124, 0.1);
+    border-radius: 50%;
+}
+
+.like:hover {
+    fill: rgb(249, 24, 128);
+    background-color: rgba(249, 24, 128, 0.1) ;
+    border-radius: 50%;
+}
+
+.share:hover {
+    fill: rgb(29, 155, 240);
+    background-color: rgba(29, 155, 240, 0.1) ;
+    border-radius: 50%;
+}
+
 
 /*** NEWS BAR ***/
 .news-feed {
-    border: 1px dashed black;
+    height: 100vh;
+    padding: 0 20px 0 20px;
     display: grid;
     grid-area: news;
+    grid-template: 
+        "search-bar" 50px
+        "trends" 2fr
+        "suggestions" 1fr
+        "." 1fr;
+    gap: 15px;
+
+    position: sticky;
+    top: 0;
+}
+
+.news-feed-header {
+    display: inline-block;
+}
+
+#search-bar {
+    padding: 0 8px 25px 0;
+}
+
+.trends {
+    display: grid;
+    grid-area: trends;
+    grid-template-rows: 40px repeat(5, 80px) 40px;
+    gap: 10px;
+}
+
+.trends-header {
+    display: grid;
+    grid-template-columns: 1fr 35px;
+    place-items: center start;
+}
+
+.trends-header .highlight {
+    font-size: 1.2rem;
+}
+
+#trends-settings {
+    padding:10px;
+}
+
+#trends-settings:hover {
+    background-color: rgba(15, 20, 25, 0.1);
+    border-radius: 50%;
+}
+
+.small {
+    font-size: 0.9rem;
+}
+
+.trend p {
+    line-height: 1.5;
+}
+
+.trends a{
+    color: rgba(29, 155, 240);
+    letter-spacing: 0;
+}
+
+.follow-suggestions{
+    display: grid;
+    grid-area: suggestions;
+}
+
+.follow-suggestions .highlight {
+    font-size: 1.2rem;
+}
+
+.follow-info {
+    height: 45px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 45px 1fr 70px;
+}
+
+.follow-button {
+    background-color: black;
+    border-radius: 30px;
+    height: 15px;
+    width: 70px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 8px 6px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.follow-suggestions a{
+    color: rgba(29, 155, 240);
+    letter-spacing: 0;
+}
+
+.follow-info .highlight {
+    font-size: 1rem;
 }
